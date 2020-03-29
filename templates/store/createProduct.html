@@ -1,0 +1,12 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+    <form method="POST"> {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.price }}<br>
+        {{ form.description }}<br>
+        {{ form.img }}<br>
+        {{ form.category }}<br>
+	    <input type="submit" name="Save"/>
+    </form>
+{% endblock content %}

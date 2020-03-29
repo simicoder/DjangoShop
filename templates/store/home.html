@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<div id="leftmenu">
+<ul id="categories">
+    {% for category in categories %}
+        <li><a href="/{{ category }}">{{ category }}</a></li>
+    {% endfor %}
+</ul>
+</div>
+
+
+
+    {% for product in products %}
+            <div class="products" align="center">
+                <a href="/products/{{ product.id }}">
+                    <img height="100px" width="120px" src="{{ product.img.url }}">
+                    <h2>{{ product.title }}</h2>
+                    <h2>{{ product.price }} $</h2>
+                </a>
+            </div>
+    {% endfor %}
+
+{% endblock content %}
