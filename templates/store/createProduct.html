@@ -1,12 +1,29 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-    <form method="POST"> {% csrf_token %}
-        {{ form.title }}<br>
-        {{ form.price }}<br>
-        {{ form.description }}<br>
-        {{ form.img }}<br>
-        {{ form.category }}<br>
-	    <input type="submit" name="Save"/>
-    </form>
+    <h1 align="center">Add Your Item</h1>
+    <div>
+            <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                <div id="crimg">
+                    {{ img_form.management_form }}
+                    <div id="file"><label for="id_form-0-img"><img height="350em" width="350em" src="/static/store/crimg.png" id="0" onchange="PreviewImage();"/></label>{{ img_form.0 }}</div>
+                    <div class="smallfile"><label for="id_form-1-img"><img height="84em" width="78em" src="/static/store/crimg.png" class="uploadPreview" id="1" onchange="PreviewImage();"/></label>{{ img_form.1 }}</div>
+                    <div class="smallfile"><label for="id_form-2-img"><img height="84em" width="78em" src="/static/store/crimg.png" class="uploadPreview" id="2" onchange="PreviewImage();"/></label>{{ img_form.2 }}</div>
+                    <div class="smallfile"><label for="id_form-3-img"><img height="84em" width="78em" src="/static/store/crimg.png" class="uploadPreview" id="3" onchange="PreviewImage();"/></label>{{ img_form.3 }}</div>
+                    <div class="smallfile"><label for="id_form-4-img"><img height="84em" width="78em" src="/static/store/crimg.png" class="uploadPreview" id="4" onchange="PreviewImage();"/></label>{{ img_form.4 }}</div>
+                </div>
+                {{ form.title }}<br>
+                {{ form.price }}<br>
+                {{ form.description }}<br>
+
+                <label for="category">Category </label>{{ form.category }}<br>
+                <input type="submit" name="Save" value="Add"/>
+            </form>
+    </div>
+
+{% load static %}
+    <script src="{% static 'store/app.js' %}"></script>
 {% endblock content %}

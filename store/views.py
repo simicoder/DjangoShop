@@ -1,4 +1,9 @@
+from django.core.checks import messages
+from django.forms import modelformset_factory
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.template import RequestContext
+
 from .forms import *
 from store.models import *
 
@@ -28,21 +33,37 @@ def home_view(request, category=None):
 
     context = {
         'products': queryset,
-        'categories': categories
+        'categories': categories,
     }
 
     return render(request, 'store/home.html', context)
 
 
 def create_view(request):
-    form = ProductForm()
+    image_form_set = modelformset_factory(ProductImage, form=ProductImageForm, extra=5)
 
     if request.method == 'POST':
         form = ProductForm(request.POST or None)
-        if form.is_valid():
-            Product.objects.create(**form.cleaned_data)
+        formset = image_form_set(request.POST, request.FILES, queryset=ProductImage.objects.none())
+        if form.is_valid() and formset.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user
+            product.save()
+            for form in formset.cleaned_data:
+                if form:
+                    image = form['img']
+                    photo = ProductImage(product=product, img=image)
+                    photo.save()
+                else:
+                    continue
+            return HttpResponseRedirect("/")
+    else:
+        form = ProductForm()
+        formset = image_form_set(queryset=ProductImage.objects.none())
+
     context = {
-        'form': form
+        'form': form,
+        'img_form': formset
     }
     return render(request, 'store/createProduct.html', context)
 
@@ -54,7 +75,7 @@ def info_view(request):
 def product_view(request, id):
     product = get_object_or_404(Product, id=id)
     context = {
-        'product': product
+        'product': product,
     }
     return render(request, 'store/product_view.html', context)
 

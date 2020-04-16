@@ -1,8 +1,11 @@
 {% extends 'store/base.html' %}
 {% block content %}
     <div align="center">
-        <img height="200px" width="250px" src="{{ product.img.url }}">
+    {% for image in product.images.all %}
+        <img class="img_view" height="200px" width="250px" src={{ image }}>
+    {% endfor %}
         <h2>{{ product.title }}</h2>
+        <h2>{{ product.description }}</h2>
         <h2>{{ product.price }} $</h2>
         <h2>seller: {{ product.seller }}</h2>
     </div>

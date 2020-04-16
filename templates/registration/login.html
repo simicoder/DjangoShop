@@ -4,9 +4,9 @@
         <p>Your username and password didn't match. Please try again</p>
     {% endif %}
 
-        <form action="{% url 'login' %}" method="post">
+        <form align="center" action="{% url 'login' %}" method="post">
                 {% csrf_token %}
-                <table>
+                <table align="center">
                     <tr>
                         <td>{{ form.username.label_tag }}</td>
                         <td>{{ form.username }}</td>
@@ -17,7 +17,7 @@
                     </tr>
                 </table>
 
-                <input type="submit" value="login" id="login"/>
+                <input type="submit" value="login"/>
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>
 {% endblock %}

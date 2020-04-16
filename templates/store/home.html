@@ -12,13 +12,11 @@
 
 
     {% for product in products %}
-            <div class="products" align="center">
-                <a href="/products/{{ product.id }}">
-                    <img height="100px" width="120px" src="{{ product.img.url }}">
-                    <h2>{{ product.title }}</h2>
-                    <h2>{{ product.price }} $</h2>
-                </a>
-            </div>
+        <a class="products" align="center" href="/products/{{ product.id }}">
+            <img src="{{ product.images.all.first }}" height="100px" width="120px">
+            <h2>{{ product.title }}</h2>
+            <h2>{{ product.price }} $</h2>
+        </a>
     {% endfor %}
 
 {% endblock content %}

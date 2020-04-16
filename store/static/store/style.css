@@ -63,17 +63,10 @@ ol li a:hover
     display: none;
 }
 
-#login
-{
-    color: white;
-    background-color: #223834;
-    border: 2px black solid;
-}
-
 #leftmenu
 {
-    min-height: 563px;
-    width: 20%;
+    height: 30em;
+    width: 10%;
     background-color: #223834;
     float: left;
     border: 2px solid black;
@@ -82,17 +75,98 @@ ol li a:hover
 .products
 {
     padding: 10px;
-    width: 140px;
     float: left;
-}
-
-.products a
-{
+    font-size: 12px;
     text-decoration: none;
     color: #223834;
+    width: 140px;
+    height: 200px;
+    display: block;
 }
 
 .products:hover
 {
     background-color: rgba(163, 170, 175, 0.9);
+}
+
+.img_view
+{
+    margin-top: 1em;
+}
+
+input
+{
+    background-color: #61b2b4;
+    border: #30a2b4 2px solid;
+    border-radius: 5px;
+    color:white;
+}
+textarea
+{
+    margin-top: 0.3em;
+    background-color: #61b2b4;
+    border: #30a2b4 2px solid;
+    border-radius: 5px;
+    color:white;
+}
+
+#file
+{
+	position: relative;
+    overflow: hidden;
+	width: 21.75em;
+    height: 21.75em;
+	margin: 4px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+#file:hover
+{
+    border: #162925 solid 1px;
+}
+
+#file input[type="file"] {
+    display: none;
+}
+
+.smallfile
+{
+	position: relative;
+    overflow: hidden;
+	width: 4.85em;
+	text-align: center;
+	border-radius: 3px;
+    float: left;
+    margin: 5px;
+}
+
+.smallfile input[type="file"] {
+	position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#crimg
+{
+    float: left;
+    height: 29em;
+    width: 24em;
+    margin-left: 30%;
+}
+
+.uploadPreview
+{
+    float: left;
+}
+
+.smallfile:hover
+{
+    border: #162925 solid 1px;
 }
