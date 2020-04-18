@@ -170,3 +170,31 @@ textarea
 {
     border: #162925 solid 1px;
 }
+
+.img_view_box
+{
+    width: 23em;
+    height: 29em;
+    float: left;
+    margin-left: 20em;
+    margin-top: 2em;
+}
+
+.big_img_view
+{
+    width: 23em;
+    height: 23em;
+}
+
+.small_img_view
+{
+    width: 5.55em;
+    height: 5.55em;
+}
+
+.description
+{
+    margin-top: 2em;
+    float: left;
+    margin-left: 3em;
+}
