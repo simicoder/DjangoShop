@@ -186,10 +186,22 @@ textarea
     height: 23em;
 }
 
+.big_img_view:hover
+{
+    border: black 2px solid;
+    border-radius: 3%;
+}
+
 .small_img_view
 {
-    width: 5.55em;
-    height: 5.55em;
+    width: 5.5em;
+    height: 5.5em;
+}
+
+.small_img_view:hover
+{
+    border: black 1px solid;
+    border-radius: 3%;
 }
 
 .description
