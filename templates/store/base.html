@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+
     {% load static %}
 	<link rel="stylesheet" href="{% static 'store\style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
@@ -13,16 +15,18 @@
         <li><a href="/">Home</a></li>
         <li><a href="/info">Info</a></li>
         {% if user.is_authenticated %}
-            <li id="account"><a href="/account">Account</a>
-            <li id="account"><a href="/accounts/logout">Log out</a>
+        <ol>
+            <li class="account"><a href="/account">Account</a>
+            <li class="account"><a href="/accounts/logout">Log out</a>
                 <ol>
                     <li><a href="/add_product">Add product</a></li>
                     <li><a href="/accounts/password_reset">Reset Password</a></li>
                 </ol>
             </li>
+        </ol>
         {% else %}
-            <li id="account"><a href="/accounts/login">Login</a></li>
-            <li id="account"><a href="/accounts/password_reset">Reset Password</a></li>
+            <li class="account"><a href="/accounts/login">Login</a></li>
+            <li class="account"><a href="/accounts/password_reset">Reset Password</a></li>
         {% endif %}
 
     </ol>

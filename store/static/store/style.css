@@ -20,7 +20,7 @@ body
 {
     text-decoration: none;
     color: white;
-    font-size: 30px;
+    font-size: 2em;
 }
 
 #categories li a:hover
@@ -28,7 +28,7 @@ body
     color: #9b9aff;
 }
 
-ol
+#navbar ol
 {
     padding: 0;
     height: 58px;
@@ -37,7 +37,6 @@ ol
     margin: 0;
     list-style-type: none;
 }
-
 ol li a
 {
     float: left;
@@ -52,13 +51,13 @@ ol li a:hover
     background-color: rgba(0, 0, 0, 0.29);
 }
 
-#account a
+.account a
 {
     float: right;
     color: white;
 }
 
-#account a ol li
+.account a ol li
 {
     display: none;
 }
@@ -209,4 +208,32 @@ textarea
     margin-top: 2em;
     float: left;
     margin-left: 3em;
+}
+
+#delete_button
+{
+    background-color: #61b2b4;
+    border: #30a2b4 2px solid;
+    border-radius: 5px;
+    color:white;
+}
+
+#cancel_deleting
+{
+    background-color: #61b2b4;
+    border: #30a2b4 2px solid;
+    border-radius: 5px;
+    color:white;
+    width: 4em;
+    height: 1.4em;
+    margin-left: 7%;
+    margin-top: 1em;
+}
+
+button
+{
+    background-color: #61b2b4;
+    border: #30a2b4 2px solid;
+    border-radius: 5px;
+    color:white;
 }

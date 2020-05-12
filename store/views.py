@@ -1,8 +1,6 @@
-from django.core.checks import messages
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django.template import RequestContext
 
 from .forms import *
 from store.models import *
@@ -74,8 +72,16 @@ def info_view(request):
 
 def product_view(request, id):
     product = get_object_or_404(Product, id=id)
+
+    img_slides = product.images.all()
+
+    if request.POST.get("delete"):
+        product.delete()
+        return redirect("/")
+
     context = {
         'product': product,
+        'img_slides': img_slides,
     }
     return render(request, 'store/product_view.html', context)
 

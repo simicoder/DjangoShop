@@ -14,26 +14,73 @@
         <p>{{ product.description }}</p>
         <h2>{{ product.price }} $</h2>
         <p>seller: {{ product.seller }}</p>
+        {% if user == product.seller %}
+            <button id="delete_button" onclick="deleting();">Delete Item</button>
+        {% endif %}
     </div>
-
 <script>
-    var item = "";
-    document.addEventListener('click', (e) => {
-        item = document.getElementById(e.target.id).src;
-    })
+    var bg_div = document.createElement("DIV");
+    var img_num = 0;
+    var img_hm = {{ img_slides.count }} - 1;
 
     function slider()
     {
-        let bg_div = document.createElement("DIV");
+        bg_div = document.createElement("DIV");
         bg_div.style.position = "absolute";
         bg_div.style.width = 100+"%";
         bg_div.style.height = 100+"%";
         bg_div.id = "bg_div";
         bg_div.style.backgroundColor = "rgba(172,183,187,0.6)";
         document.body.appendChild(bg_div);
-        var img_slide = item;
-        bg_div.insertAdjacentHTML( 'afterbegin', '<img style="margin-left: 27em;" height="500em" width="500em" src='+img_slide+'></img>');
-        bg_div.insertAdjacentHTML( 'afterbegin', '<div style="float: right; margin-right: 2em; position:absolute; height:100%; width:100%;" onclick="bg_div.remove();"></div>');
+        bg_div.insertAdjacentHTML( 'afterbegin', '<button style="margin-right:10em; margin-top: 5em;float:right; margin:100px height:30px; width:30px;" onclick="bg_div.remove();">X</button>');
+        bg_div.insertAdjacentHTML( 'afterbegin', '<button style="position: absolute; margin-left: 0.3em; margin-top:20em;" onclick="if(img_num<img_hm){img_num+=1;}; img_display();">►</button>');
+        bg_div.insertAdjacentHTML( 'afterbegin', '<button style="position: absolute; margin-left:-40em; margin-top: 20em;" onclick="if(img_num>0){img_num-=1;}; img_display();">◄</button>');
+
+        img_display();
+    }
+
+    function img_display() {
+        var img_slide = "{{ img_slides.0 }}"
+        if (img_num == 0){
+            if(document.getElementById("img_slide"))
+                document.getElementById("img_slide").remove();
+            bg_div.insertAdjacentHTML( 'afterbegin', '<img id="img_slide" style="margin-left: 27em;" height="500em" width="500em" src='+img_slide+'></img>');
+        }
+        else if (img_num == 1){
+            if(document.getElementById("img_slide"))
+                document.getElementById("img_slide").remove();
+            bg_div.insertAdjacentHTML( 'afterbegin', '<img id="img_slide" style="margin-left: 27em;" height="500em" width="500em" src='+"{{ img_slides.1 }}"+'></img>');
+        }
+        else if (img_num == 2){
+            if(document.getElementById("img_slide"))
+                document.getElementById("img_slide").remove();
+            bg_div.insertAdjacentHTML( 'afterbegin', '<img id="img_slide" style="margin-left: 27em;" height="500em" width="500em" src='+"{{ img_slides.2 }}"+'></img>');
+        }
+        else if (img_num == 3){
+            if(document.getElementById("img_slide"))
+                document.getElementById("img_slide").remove();
+            bg_div.insertAdjacentHTML( 'afterbegin', '<img id="img_slide" style="margin-left: 27em;" height="500em" width="500em" src='+"{{ img_slides.3 }}"+'></img>');
+        }
+        else if (img_num == 4){
+            if(document.getElementById("img_slide"))
+                document.getElementById("img_slide").remove();
+            bg_div.insertAdjacentHTML( 'afterbegin', '<img id="img_slide" style="margin-left: 27em;" height="500em" width="500em" src='+"{{ img_slides.4 }}"+'></img>');
+        }
+        }
+
+    function deleting()
+    {
+        var deleting_pop_up = document.createElement("DIV");
+        deleting_pop_up.style.position = "absolute";
+        deleting_pop_up.style.width = 40+"%";
+        deleting_pop_up.style.height = 30+"%";
+        deleting_pop_up.style.backgroundColor = "rgba(81,96,97,0.9)";
+        deleting_pop_up.style.border = "black solid 2px";
+        deleting_pop_up.style.marginLeft = 30+"%";
+        deleting_pop_up.style.marginTop = 8+"%";
+        deleting_pop_up.id = "deleting_pop_up";
+        document.body.appendChild(deleting_pop_up);
+        deleting_pop_up.insertAdjacentHTML( 'afterbegin', '<form align="center" action="" method="post">{% csrf_token %} <h1>Are you sure?</h1> <input type="submit" name="delete" value="Yes, I want delete this item"/><button id="cancel_deleting" onclick="deleting_pop_up.remove();">cancel</button> </form>');
     }
 </script>
 {% endblock %}
