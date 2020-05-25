@@ -1,6 +1,5 @@
 {% extends 'store/base.html' %}
 {% block content %}
-    <div align="center">
     <div class="img_view_box">
         <img id="big_img_view" class="big_img_view" height="200px" width="250px" onclick="slider();" src={{ product.images.all.0 }}>
         <img class="small_img_view" height="200px" width="250px" alt="" onclick="slider();" src={{ product.images.all.1 }}>
@@ -31,7 +30,7 @@
         bg_div.style.height = 100+"%";
         bg_div.id = "bg_div";
         bg_div.style.backgroundColor = "rgba(172,183,187,0.6)";
-        document.body.appendChild(bg_div);
+        document.getElementById('content').appendChild(bg_div);
         bg_div.insertAdjacentHTML( 'afterbegin', '<button style="margin-right:10em; margin-top: 5em;float:right; margin:100px height:30px; width:30px;" onclick="bg_div.remove();">X</button>');
         bg_div.insertAdjacentHTML( 'afterbegin', '<button style="position: absolute; margin-left: 0.3em; margin-top:20em;" onclick="if(img_num<img_hm){img_num+=1;}; img_display();">►</button>');
         bg_div.insertAdjacentHTML( 'afterbegin', '<button style="position: absolute; margin-left:-40em; margin-top: 20em;" onclick="if(img_num>0){img_num-=1;}; img_display();">◄</button>');
@@ -74,12 +73,13 @@
         deleting_pop_up.style.position = "absolute";
         deleting_pop_up.style.width = 40+"%";
         deleting_pop_up.style.height = 30+"%";
-        deleting_pop_up.style.backgroundColor = "rgba(81,96,97,0.9)";
+        deleting_pop_up.style.backgroundColor = "rgb(81,96,97)";
         deleting_pop_up.style.border = "black solid 2px";
         deleting_pop_up.style.marginLeft = 30+"%";
         deleting_pop_up.style.marginTop = 8+"%";
+        deleting_pop_up.style.borderRadius = "5px";
         deleting_pop_up.id = "deleting_pop_up";
-        document.body.appendChild(deleting_pop_up);
+        document.getElementById('content').appendChild(deleting_pop_up);
         deleting_pop_up.insertAdjacentHTML( 'afterbegin', '<form align="center" action="" method="post">{% csrf_token %} <h1>Are you sure?</h1> <input type="submit" name="delete" value="Yes, I want delete this item"/><button id="cancel_deleting" onclick="deleting_pop_up.remove();">cancel</button> </form>');
     }
 </script>

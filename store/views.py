@@ -1,7 +1,7 @@
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-
+from django.contrib.auth.decorators import login_required
 from .forms import *
 from store.models import *
 
@@ -36,7 +36,7 @@ def home_view(request, category=None):
 
     return render(request, 'store/home.html', context)
 
-
+@login_required
 def create_view(request):
     image_form_set = modelformset_factory(ProductImage, form=ProductImageForm, extra=5)
 
@@ -85,6 +85,6 @@ def product_view(request, id):
     }
     return render(request, 'store/product_view.html', context)
 
-
+@login_required
 def account_info_view(request):
     return render(request, 'store/account.html')

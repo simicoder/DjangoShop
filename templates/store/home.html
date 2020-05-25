@@ -3,20 +3,20 @@
 {% block content %}
 <div id="leftmenu">
 <ul id="categories">
+    <li><a href="/">All</a></li>
     {% for category in categories %}
         <li><a href="/{{ category }}">{{ category }}</a></li>
     {% endfor %}
 </ul>
 </div>
 
-
-
+<div id="products_container">
     {% for product in products %}
         <a class="products" align="center" href="/products/{{ product.id }}">
-            <img src="{{ product.images.all.first }}" height="100px" width="120px">
+            <img src="{{ product.images.all.first }}" height="200px" style="border-radius: 5px">
             <h2>{{ product.title }}</h2>
             <h2>{{ product.price }} $</h2>
         </a>
     {% endfor %}
-
+</div>
 {% endblock content %}

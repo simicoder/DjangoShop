@@ -1,6 +1,9 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-    <h1>Username: {{ user.username }}</h1>
-    <h1>Email: {{ user.email }}</h1>
+	<h1 align="center">Account Info</h1>
+    <h2 align="center">Username: {{ user.username }}</h1>
+    {% if user.emial %}
+    	<h2 align="center">Email: {{ user.email }}</h1>
+    {% endif %}
 {% endblock content %}

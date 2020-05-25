@@ -37,6 +37,20 @@ body
     margin: 0;
     list-style-type: none;
 }
+
+#content
+{
+    min-height: 32em;
+}
+
+#footer
+{
+    width: 100%;
+    height: 4em;
+    background-color: rgba(0, 0, 0, 0.29);
+    float: left;
+}
+
 ol li a
 {
     float: left;
@@ -64,23 +78,36 @@ ol li a:hover
 
 #leftmenu
 {
-    height: 30em;
-    width: 10%;
+    min-height: 35em;
+    min-width: 15%;
     background-color: #223834;
     float: left;
     border: 2px solid black;
+    position: relative;
+}
+
+#products_container
+{
+    width: 84.5%;
+    min-height: 10em;
+    float: left;
+    align-content: center;
 }
 
 .products
 {
-    padding: 10px;
+    margin: 8px;
+    padding: 5px;
     float: left;
     font-size: 12px;
     text-decoration: none;
     color: #223834;
-    width: 140px;
-    height: 200px;
+    width: 18em;
+    height: 25em;
     display: block;
+    position: relative;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 
 .products:hover
