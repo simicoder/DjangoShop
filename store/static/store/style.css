@@ -3,12 +3,25 @@ body
     margin: 0;
     padding: 0;
     font-family: 'Oswald', sans-serif;
-    background-color: rgba(186, 194, 199, 0.9);
+    background-color: white;
 }
 
 #navbar
 {
     height: 58px;
+}
+
+#search-bar
+{
+    height: 2em;
+    width: 110%;
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: -2.1em;
+    font-size: 1em;
 }
 
 #categories
@@ -79,7 +92,7 @@ ol li a:hover
 #leftmenu
 {
     min-height: 35em;
-    min-width: 15%;
+    min-width: 18%;
     background-color: #223834;
     float: left;
     border: 2px solid black;
@@ -88,7 +101,7 @@ ol li a:hover
 
 #products_container
 {
-    width: 84.5%;
+    width: 80%;
     min-height: 10em;
     float: left;
     align-content: center;
@@ -144,7 +157,7 @@ textarea
     height: 21.75em;
 	margin: 4px;
 	text-align: center;
-	border-radius: 3px;
+	border-radius: 10px;
 }
 
 #file:hover
@@ -210,24 +223,26 @@ textarea
 {
     width: 23em;
     height: 23em;
+    transition: all 0.2s ease-in-out;
 }
 
 .big_img_view:hover
 {
-    border: black 2px solid;
-    border-radius: 1%;
+    transform: scale(0.9);
+    opacity: 0.7;
 }
 
 .small_img_view
 {
     width: 5.5em;
     height: 5.5em;
+    transition: all 0.2s ease-in-out;
 }
 
 .small_img_view:hover
 {
-    border: black 1px solid;
-    border-radius: 1%;
+    transform: scale(0.9);
+    opacity: 0.7;
 }
 
 .description

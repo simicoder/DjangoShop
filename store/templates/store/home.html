@@ -3,6 +3,11 @@
 {% block content %}
 <div id="leftmenu">
 <ul id="categories">
+    <li>
+        <form method="GET" action="">
+            <input id="search-bar" type="text" placeholder="search" name="q" value="{{query}}">
+        </form>
+    </li>
     <li><a href="/">All</a></li>
     {% for category in categories %}
         <li><a href="/{{ category }}">{{ category }}</a></li>

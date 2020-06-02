@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from store.models import *
+from django.db.models import Q
 
 
 def signup_view(request):
@@ -20,7 +21,7 @@ def signup_view(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-def home_view(request, category=None):
+def home_view(request, query=None, category=None):
     if category is None:
         queryset = Product.objects.all()
     else:
@@ -28,6 +29,21 @@ def home_view(request, category=None):
         queryset = Product.objects.filter(category=category)
 
     categories = Category.objects.all()
+
+    query = ""
+
+    if request.GET:
+        queryset = []
+        query = request.GET['q']
+
+        queries = query.split(" ")
+        for q in queries:
+            posts = Product.objects.filter(Q(title__icontains=q)).distinct()
+
+            for post in posts:
+                queryset.append(post)
+    
+        queryset = list(set(queryset))
 
     context = {
         'products': queryset,
