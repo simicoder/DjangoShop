@@ -38,10 +38,10 @@ def home_view(request, query=None, category=None):
 
         queries = query.split(" ")
         for q in queries:
-            posts = Product.objects.filter(Q(title__icontains=q)).distinct()
+            products = Product.objects.filter(Q(title__icontains=q)).distinct()
 
-            for post in posts:
-                queryset.append(post)
+            for prod in products:
+                queryset.append(prod)
     
         queryset = list(set(queryset))
 
