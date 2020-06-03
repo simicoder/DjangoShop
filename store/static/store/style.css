@@ -157,12 +157,13 @@ textarea
     height: 21.75em;
 	margin: 4px;
 	text-align: center;
-	border-radius: 10px;
+    border-radius: 10px;
+	transition: all 0.2s ease-in-out;
 }
 
 #file:hover
 {
-    border: #162925 solid 1px;
+    transform: scale(0.9);
 }
 
 #file input[type="file"] {
@@ -178,6 +179,8 @@ textarea
 	border-radius: 3px;
     float: left;
     margin: 5px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
 .smallfile input[type="file"] {
@@ -207,7 +210,7 @@ textarea
 
 .smallfile:hover
 {
-    border: #162925 solid 1px;
+    transform: scale(0.9);
 }
 
 .img_view_box
