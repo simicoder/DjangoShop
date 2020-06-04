@@ -41,14 +41,71 @@ body
     color: #9b9aff;
 }
 
-#navbar ol
+#navbar-home-list
 {
     padding: 0;
     height: 58px;
     background-color: #162925;
-    width: 100%;
     margin: 0;
     list-style-type: none;
+}
+
+#navbar-account-list
+{
+    float: right;
+    padding: 0;
+    margin-top: -2.2em;
+    list-style-type: none;
+    font-size: 25px;
+    height: 58px;
+    line-height: 200%;
+    display: inline-block;
+}
+
+#navbar-home-list li a
+{
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+    color: rgba(232, 231, 208, 0.79);
+    font-size: 25px;
+}
+
+#navbar-account-list a
+{
+    text-decoration: none;
+    display: block;
+    color: rgba(232, 231, 208, 0.79);
+}
+
+#navbar-account-list li 
+{
+    float: left;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+}
+
+#navbar-account-list li ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    display: none;
+    background-color: 
+}
+
+#navbar-account-list li:hover ul
+{
+    display: block;
+}
+
+#navbar-account-list li ul li
+{
+    position: relative;
+    z-index: 100;
+    background-color: #162925;
 }
 
 #content
@@ -62,15 +119,6 @@ body
     height: 4em;
     background-color: rgba(0, 0, 0, 0.29);
     float: left;
-}
-
-ol li a
-{
-    float: left;
-    padding: 10px;
-    text-decoration: none;
-    color: rgba(232, 231, 208, 0.79);
-    font-size: 25px;
 }
 
 ol li a:hover
