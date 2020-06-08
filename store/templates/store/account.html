@@ -1,9 +1,47 @@
 {% extends 'store/base.html' %}
 
 {% block content %}
-	<h1 align="center">Account Info</h1>
-    <h2 align="center">Username: {{ user.username }}</h1>
-    {% if user.emial %}
-    	<h2 align="center">Email: {{ user.email }}</h1>
-    {% endif %}
+	<div align="center">
+		<h1 id="account-title">Account Info</h1>
+    	<h2>Username: {{ user.username }}</h2>
+    	{% if user.emial %}
+    		<h2 align="center">Email: {{ user.email }}</h2>
+    	{% endif %}
+	</div>
+
+    <div id="account-product-list">
+    	<h1 id="account-youritems">Your Items</h1>
+    	{% if products %}
+	    	<div id="account-items-navbar">
+	    		<button id="delete_all_button" onclick="deleting_all();">Delete all items</button>
+	    	</div>
+	    	{% for product in products %}
+	        	<a class="products" align="center" href="/products/{{ product.id }}">
+	            	<img src="{{ product.images.all.first }}" height="200px" style="border-radius: 5px">
+	            	<h2>{{ product.title }}</h2>
+	            	<h2>{{ product.price }} $</h2>
+	        	</a>
+	    	{% endfor %}
+	    {% else %}
+	    	<h2 id="account-any-product-text">You don't have posted items</h2>
+    	{% endif %}
+	</div>
+
+	<script type="text/javascript">
+		function deleting_all()
+		{
+			var deleting_pop_up = document.createElement("DIV");
+	        deleting_pop_up.style.position = "absolute";
+	        deleting_pop_up.style.width = 40+"%";
+	        deleting_pop_up.style.height = 30+"%";
+	        deleting_pop_up.style.backgroundColor = "rgb(81,96,97)";
+	        deleting_pop_up.style.border = "black solid 2px";
+	        deleting_pop_up.style.marginLeft = 30+"%";
+	        deleting_pop_up.style.marginTop = 8+"%";
+	        deleting_pop_up.style.borderRadius = "5px";
+	        deleting_pop_up.id = "deleting_pop_up";
+	        document.getElementById('content').appendChild(deleting_pop_up);
+	        deleting_pop_up.insertAdjacentHTML( 'afterbegin', '<form align="center" action="" method="post">{% csrf_token %} <h1>Are you sure?</h1> <input type="submit" name="delete" value="Yes, I want delete all items"/><button id="cancel_deleting" onclick="deleting_pop_up.remove();">cancel</button> </form>');
+		}
+	</script>
 {% endblock content %}

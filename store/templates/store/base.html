@@ -7,6 +7,7 @@
     {% load static %}
 	<link rel="stylesheet" href="{% static 'store\style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script src="{% static 'store/app.js' %}"></script>
 </head>
 <body>
 
@@ -14,14 +15,6 @@
     <ol id="navbar-home-list">
         <li><a href="/">Home</a></li>
         <li><a href="/info">Info</a></li>
-        <!-- <li id="navbar-category-block">
-            <a href="/">Categories</a>
-            <ol id="navbar-categories">
-                {% for category in categories %}
-                <li><a href="/{{ category }}">{{ category }}</a></li>
-                {% endfor %}
-            </ol>
-        </li> -->
     </ol>
 
     <ol id="navbar-account-list">
@@ -37,6 +30,7 @@
         <li><a href="/account">Account</a>
             <ul>
                 <li><a href="/accounts/login">Login</a></li>
+                <li><a href="/signup/">Signup</a></li>
                 <li><a href="/accounts/password_reset">Reset Password</a></li>
             </ul>
         </li>

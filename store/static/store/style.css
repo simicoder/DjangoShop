@@ -330,3 +330,57 @@ button
     border-radius: 5px;
     color:white;
 }
+
+#signup-labels-container
+{
+    width: 13em;
+}
+
+#signup-title
+{
+    margin-left: 6em;
+}
+
+#password-helptext
+{
+    display: block;
+    font-size: 15px;
+}
+
+#account-product-list
+{
+    margin-top: 5%;
+    width: 70em;
+    min-height: 5em;
+    margin-left: 15%;
+}
+
+#account-title
+{
+    margin-left: 11%;
+}
+
+#account-youritems
+{
+    margin-left: 37%;
+}
+
+#account-items-navbar
+{
+    width: 100%;
+}
+
+#delete_all_button
+{
+    font-size: 20px;
+    margin-left: 36%;
+}
+
+#account-any-product-text
+{
+    margin-left: 33%;
+    border-radius: 3%;
+    background-color: rgba(163, 170, 175, 0.9);
+    width: 10.3em;
+    text-align: center;
+}

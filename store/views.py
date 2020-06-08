@@ -103,4 +103,12 @@ def product_view(request, id):
 
 @login_required
 def account_info_view(request):
-    return render(request, 'store/account.html')
+    queryset = Product.objects.filter(seller=request.user)
+
+    if request.POST.get("delete"):
+        queryset.delete()
+
+    context = {
+        'products': queryset
+    }
+    return render(request, 'store/account.html', context)
